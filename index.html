@@ -2,6 +2,8 @@
 layout: default
 ---
 
+
+
 <div class="home">
   {% if site.theme_settings.header_text %}
   <div class="call-out"
@@ -10,43 +12,17 @@ layout: default
   </div>
   {% endif %}
 
-  <div class="posts">
-    {% for post in paginator.posts %}
-    <div class="post-teaser">
-      <header>
-        <h1>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">
-            {{ post.title }}
-          </a>
-        </h1>
-        <p class="meta">
-          {{ post.date | date: "%B %-d, %Y" }}
-        </p>
-      </header>
-      <div class="excerpt">
-        {{ post.excerpt }}
-        <a class="button" href="{{ post.url | prepend: site.baseurl }}">
-          {{ site.theme_settings.str_continue_reading }}
-        </a>
+ 
+  <article>
+      <div class="posts">
+        <table style="width:100%">
+          {% for post in site.posts %}
+          <tr>
+            <td style="width:25%;border:none;padding:2px"> <b> {{ post.date | date: "%b %d, %Y" }} </b> </td>
+            <td style="border:none;padding:2px"><a class="post-link plain" href="{{ post.url | prepend: site.baseurl }}"> <b> {{ post.title }} </b> </a></td>
+          </tr>
+          {% endfor %}
+        </table>
       </div>
-    </div>
-    {% endfor %}
-  </div>
-
-  {% if paginator.total_pages > 1 %}
-  <div class="pagination">
-    {% if paginator.previous_page %}
-    <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}" class="button" >
-      <i class="fa fa-chevron-left"></i>
-      {{ site.theme_settings.str_prev }}
-    </a>
-    {% endif %}
-    {% if paginator.next_page %}
-    <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}" class="button" >
-      {{ site.theme_settings.str_next }}
-      <i class="fa fa-chevron-right"></i>
-    </a>
-    {% endif %}
-  </div>
-  {% endif %}
+      </article>
 </div>

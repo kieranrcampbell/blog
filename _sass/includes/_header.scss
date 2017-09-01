@@ -23,7 +23,7 @@
     float: left;
     font-weight: bold;
     font-size: 1em;
-    line-height: 1.5;
+    line-height: 1;
   }
 
   .site-nav {
@@ -31,9 +31,9 @@
       margin: 0;
       padding: 0;
       list-style: none;
-      line-height: 1.5;
+      line-height: 1;
       float: right;
-      text-align: right;
+      text-align: left;
     }
     li {
       display: inline;
