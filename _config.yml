@@ -65,7 +65,9 @@ paginate: 5
 paginate_path: "blog/page:num"
 
 # BUILD SETTINGS
-markdown: kramdown
+markdown: 
+  kramdown:
+    parse_block_html: true
 highlighter: rouge
 sass:
   sass_dir: _sass
